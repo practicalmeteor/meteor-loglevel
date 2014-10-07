@@ -26,5 +26,6 @@ log.disableAll()
 Can be found at the [loglevel](https://github.com/pimterry/loglevel) github homepage.
 
 ## License
-[loglevel](https://github.com/pimterry/loglevel/blob/master/LICENSE-MIT) - MIT
-[spacejamio:loglevel](https://github.com/spacejamio/meteor-loglevel/blob/master/LICENSE.txt) - MIT
+loglevel - [MIT](https://github.com/pimterry/loglevel/blob/master/LICENSE-MIT)
+
+spacejamio:loglevel - [MIT](https://github.com/spacejamio/meteor-loglevel/blob/master/LICENSE.txt)
