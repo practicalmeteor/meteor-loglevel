@@ -1,6 +1,6 @@
 Package.describe({
   name: "spacejamio:loglevel",
-  summary: "Minimal lightweight logging for JavaScript, adding reliable log level methods to wrap any available console.log methods",
+  summary: "Minimal lightweight logging library with output that preserves line numbers.",
   version: "1.1.0_1",
   git: "https://github.com/spacejamio/meteor-loglevel.git"
 });
