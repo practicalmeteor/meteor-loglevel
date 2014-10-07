@@ -6,14 +6,14 @@ A meteor package wrapping [loglevel](https://github.com/pimterry/loglevel), a mi
 ## API Summary
 
 ```
-log.trace(msg)
-log.debug(msg)
-log.info(msg)
-log.warn(msg)
-log.error(msg)
-log.setLevel(level) # Any of the levels above.
-log.enableAll()
-log.disableAll()
+log.trace(msg);
+log.debug(msg);
+log.info(msg);
+log.warn(msg);
+log.error(msg);
+log.setLevel(level); # Any of the levels above.
+log.enableAll();
+log.disableAll();
 ```
 
 ## Meteor.settings
