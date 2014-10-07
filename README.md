@@ -1,11 +1,11 @@
 [![Build Status](https://travis-ci.org/spacejamio/meteor-loglevel.svg?branch=master)](https://travis-ci.org/spacejamio/meteor-loglevel)
 
 ## Overview
-A meteor package wrapping [loglevel](https://github.com/pimterry/loglevel), a minimal lightweight logging library for JavaScript and node.js, adding reliable log level methods to wrap any available console.log methods, with output that keeps line numbers.
+A meteor package wrapping [loglevel.js](https://github.com/pimterry/loglevel), a minimal lightweight logging library, adding reliable log level methods to wrap any available console.log methods, with output that keeps line numbers.
 
 ## Supported Meteor Versions
 
-0.9.3 and above
+0.9.3 and above, since it uses the new meteor "wrapped package" version numbers.
 
 ## API Summary
 
