@@ -19,6 +19,7 @@ log.disableAll()
 ## Meteor.settings
 
 `Meteor.settings.loglevel` - set server side log level.
+
 `Meteor.settings.public.loglevel` - set client side log level.
 
 ## Detailed Documentation
