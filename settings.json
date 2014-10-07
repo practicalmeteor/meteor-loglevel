@@ -1,0 +1,6 @@
+{
+  "loglevel": "debug",
+  "public": {
+    "loglevel": "info"
+  }
+}
