@@ -1,3 +1,6 @@
+console.log('Package in test:', Package);
+console.log('Package.json in test:', Package.json);
+
 function logAllLevels() {
   log.trace("I'm log.trace");
   log.debug("I'm log.debug");
@@ -18,3 +21,12 @@ Tinytest.add(test2Name, function() {
   log.enableAll();
   logAllLevels();
 });
+
+var test3Name = 'loglevel - setPrefix';
+Tinytest.add(test3Name, function() {
+  console.log(test3Name);
+  log.setPrefix('spacejamio:loglevel:');
+  log.enableAll();
+  logAllLevels();
+});
+

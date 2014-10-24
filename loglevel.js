@@ -1,8 +1,8 @@
 /*! loglevel - v1.1.0 - https://github.com/pimterry/loglevel - (c) 2014 Tim Perry - licensed MIT */
-(function (root, definition) {
-  root.log = definition();
-}(loglevel_root, function () {
+
+function Log() {
     var self = {};
+    self.prefix = '';
     var noop = function() {};
     var undefinedType = "undefined";
 
@@ -27,14 +27,15 @@
                 return functionBindingWrapper(method, console);
             } else {
                 try {
-                    return Function.prototype.bind.call(console[methodName], console);
+                    console.log('Binding' + methodName);
+                    return Function.prototype.bind.call(console[methodName], console, self.prefix);
                 } catch (e) {
                     // In IE8 + Modernizr, the bind shim will reject the above, so we fall back to wrapping
                     return functionBindingWrapper(method, console);
                 }
             }
         } else {
-            return console[methodName].bind(console);
+            return console[methodName].bind(console, self.prefix);
         }
     }
 
@@ -137,6 +138,7 @@
 
     self.setLevel = function (level) {
         if (typeof level === "number" && level >= 0 && level <= self.levels.SILENT) {
+            self.level = level;
             persistLevelIfPossible(level);
 
             if (level === self.levels.SILENT) {
@@ -178,17 +180,16 @@
         self.setLevel(self.levels.SILENT);
     };
 
-    // Grab the current global log variable in case of overwrite
-    var _log = (typeof window !== undefinedType) ? window.log : undefined;
-    self.noConflict = function() {
-        if (typeof window !== undefinedType &&
-               window.log === self) {
-            window.log = _log;
-        }
-
-        return self;
+    self.setPrefix = function(prefix) {
+      self.prefix = prefix;
+      self.setLevel(self.level);
     };
 
-    loadPersistedLevel();
+  loadPersistedLevel();
     return self;
-}));
+}
+
+log = Log();
+
+console.log('Package:', Package);
+console.log('Package.json:', Package.json);

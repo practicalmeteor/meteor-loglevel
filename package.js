@@ -11,9 +11,10 @@ Package.onUse(function (api) {
 
   api.use(['meteor', 'application-configuration']);
 
-  api.addFiles('loglevel_root.js');
   api.addFiles('loglevel.js');
   api.addFiles('set-loglevel.js');
+
+  api.export('log');
 });
 
 
