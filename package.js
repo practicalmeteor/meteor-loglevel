@@ -9,16 +9,20 @@ Package.describe({
 Package.onUse(function (api) {
   api.versionsFrom('0.9.3');
 
-  api.use(['meteor', 'application-configuration']);
+  api.use(['meteor', 'application-configuration', 'coffeescript']);
+
+  api.use(['spacejamio:chai']);
 
   api.addFiles('loglevel.js');
+  api.addFiles('LoggerFactory.coffee');
   api.addFiles('set-loglevel.js');
 
-  api.export('log');
+  api.export('loglevel');
 });
 
 
 Package.onTest(function(api) {
-  api.use(['spacejamio:loglevel', 'tinytest']);
-  api.addFiles('loglevel-test.js');
+  api.use(['coffeescript', 'spacejamio:loglevel', 'tinytest', 'spacejamio:munit']);
+  api.addFiles('tests/loglevel-test.coffee');
+  api.addFiles('tests/LoggerFactoryTest.coffee');
 });

@@ -1,8 +1,12 @@
 /*! loglevel - v1.1.0 - https://github.com/pimterry/loglevel - (c) 2014 Tim Perry - licensed MIT */
 
-function Log() {
+Loglevel = function (prefix) {
     var self = {};
-    self.prefix = '';
+    if(typeof prefix === 'string') {
+      self.prefix = prefix;
+    } else {
+      self.prefix = '';
+    }
     var noop = function() {};
     var undefinedType = "undefined";
 
@@ -186,10 +190,8 @@ function Log() {
     };
 
   loadPersistedLevel();
-    return self;
-}
+  return self;
+};
 
-log = Log();
-
-console.log('Package:', Package);
-console.log('Package.json:', Package.json);
+log = Loglevel('practicalmeteor:loglevel:');
+log.setLevel('debug');
