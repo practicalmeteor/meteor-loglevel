@@ -1,7 +1,7 @@
 Package.describe({
   name: "spacejamio:loglevel",
   summary: "Minimal lightweight logging library with output that preserves line numbers.",
-  version: "1.1.0_1",
+  version: "1.1.0_2",
   git: "https://github.com/spacejamio/meteor-loglevel.git"
 });
 
