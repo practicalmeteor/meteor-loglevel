@@ -4,13 +4,15 @@ class LoggerFactory
   @get: ->
     instance ?= new LoggerFactory
 
-  createLogger: (namespace)->
+  createLogger: (namespace, defaultLevel)->
     log.debug 'LoggerFactory.createLogger()', arguments
     if namespace?
       expect(namespace).to.be.a('string').that.has.length.above(0)
       prefix = namespace + ':'
     expect(Loglevel).to.be.a 'function'
-    return Loglevel(prefix)
+    logger = Loglevel(prefix)
+    logger.setLevel(defaultLevel) if defaultLevel?
+    return logger
 
   createPackageLogger: (packageName)->
     return @createLogger(packageName)
