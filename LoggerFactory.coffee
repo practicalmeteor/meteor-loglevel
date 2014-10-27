@@ -6,8 +6,9 @@ class LoggerFactory
 
   createLogger: (namespace, defaultLevel = 'info')->
     log.debug 'LoggerFactory.createLogger()', arguments
-    expect(namespace).to.be.a('string').that.is.ok
-    prefix = namespace + ':'
+    if namespace?
+      expect(namespace).to.be.a('string')
+      prefix = namespace + ':'
     expect(Loglevel).to.be.a 'function'
     logger = Loglevel(prefix)
     logger.setLevel(defaultLevel)
