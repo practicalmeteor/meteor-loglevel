@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/spacejamio/meteor-loglevel.svg?branch=master)](https://travis-ci.org/spacejamio/meteor-loglevel)
+[![Build Status](https://travis-ci.org/practicalmeteor/meteor-loglevel.svg?branch=master)](https://travis-ci.org/practicalmeteor/meteor-loglevel)
 
 ## Overview
 
