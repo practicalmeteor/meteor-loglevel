@@ -39,7 +39,6 @@ class practical.LoggerFactory
     options = {}
     options.prefix = namespace + ':' if namespace.length > 0
     options.level = @_getSettingsLoglevel(namespace, defaultLevel)
-    console.log "options=", options
     return Loglevel(options)
 
   createPackageLogger: (packageName, defaultLevel = 'info')->
