@@ -1,5 +1,7 @@
 /*! loglevel - v1.1.0 - https://github.com/pimterry/loglevel - (c) 2014 Tim Perry - licensed MIT */
 
+console.warn('The spacjamio:loglevel package has been renamed to practicalmeteor:loglevel. Please use the new package name instead.');
+
 Loglevel = function (options) {
     var self = {};
     if(options && options.prefix) {

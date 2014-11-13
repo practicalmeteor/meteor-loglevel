@@ -1,10 +1,9 @@
 Package.describe({
-  name: "practicalmeteor:loglevel",
-  summary: "Simple logger with app and per-package log levels and line number preserving output.",
+  name: "spacejamio:loglevel",
+  summary: "This package has been renamed to practicalmeteor:loglevel. Please use the new name instead.",
   version: "1.1.0_2",
   git: "https://github.com/practicalmeteor/meteor-loglevel.git"
 });
-
 
 Package.onUse(function (api) {
   api.versionsFrom('0.9.3');
