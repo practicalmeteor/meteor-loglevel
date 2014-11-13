@@ -1,11 +1,16 @@
 /*! loglevel - v1.1.0 - https://github.com/pimterry/loglevel - (c) 2014 Tim Perry - licensed MIT */
 
-Loglevel = function (prefix) {
+Loglevel = function (options) {
     var self = {};
-    if(typeof prefix === 'string') {
-      self.prefix = prefix;
+    if(options && options.prefix) {
+      self.prefix = options.prefix;
     } else {
       self.prefix = '';
+    }
+    if(options && options.defaultLevel) {
+      self.defaultLevel = options.defaultLevel;
+    } else {
+      self.defaultLevel = 'info';
     }
     var noop = function() {};
     var undefinedType = "undefined";
@@ -143,7 +148,7 @@ Loglevel = function (prefix) {
     self.setLevel = function (level) {
         if (typeof level === "number" && level >= 0 && level <= self.levels.SILENT) {
             self.level = level;
-            persistLevelIfPossible(level);
+            //persistLevelIfPossible(level);
 
             if (level === self.levels.SILENT) {
                 replaceLoggingMethods(function () {
@@ -184,14 +189,8 @@ Loglevel = function (prefix) {
         self.setLevel(self.levels.SILENT);
     };
 
-    self.setPrefix = function(prefix) {
-      self.prefix = prefix;
-      self.setLevel(self.level);
-    };
-
-  loadPersistedLevel();
+  self.setLevel(self.defaultLevel);
   return self;
 };
 
-log = Loglevel('practicalmeteor:loglevel:');
-log.setLevel('debug');
+log = Loglevel({prefix: 'practicalmeteor:loglevel:'});
