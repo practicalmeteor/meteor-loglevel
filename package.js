@@ -11,7 +11,7 @@ Package.onUse(function (api) {
 
   api.use(['meteor', 'coffeescript']);
 
-  api.use(['spacejamio:chai']);
+  api.use(['spacejamio:chai@1.9.2_2']);
 
   api.addFiles('loglevel.js');
   api.addFiles('LoggerFactory.coffee');
@@ -21,6 +21,6 @@ Package.onUse(function (api) {
 
 
 Package.onTest(function(api) {
-  api.use(['coffeescript', 'practicalmeteor:loglevel', 'spacejamio:munit']);
+  api.use(['coffeescript', 'practicalmeteor:loglevel', 'spacejamio:munit@2.1.1']);
   api.addFiles('tests/LoggerFactoryTest.coffee');
 });
