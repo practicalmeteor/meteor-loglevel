@@ -7,10 +7,10 @@ Loglevel = function (options) {
     } else {
       self.prefix = '';
     }
-    if(options && options.defaultLevel) {
-      self.defaultLevel = options.defaultLevel;
+    if(options && options.level) {
+      self.level = options.level;
     } else {
-      self.defaultLevel = 'info';
+      self.level = 'info';
     }
     var noop = function() {};
     var undefinedType = "undefined";
@@ -189,7 +189,7 @@ Loglevel = function (options) {
         self.setLevel(self.levels.SILENT);
     };
 
-  self.setLevel(self.defaultLevel);
+  self.setLevel(self.level);
   return self;
 };
 

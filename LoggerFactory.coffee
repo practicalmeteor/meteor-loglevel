@@ -7,6 +7,8 @@ class practical.LoggerFactory
   @get: ->
     instance ?= new practical.LoggerFactory()
 
+  # The 'global' namespace is checked first, in order to allow people to enforce
+  # a loglevel across the board.
   _getSettingsLoglevel: (namespace = '', defaultLevel = 'info')->
     expect(namespace).to.be.a('string')
     expect(defaultLevel).to.be.a('string').that.has.length.above(0)
@@ -16,6 +18,10 @@ class practical.LoggerFactory
     level ?= @_getNamespaceLoglevel('default')
     level ?= defaultLevel
 
+  # @returns Meteor.settings.loglevel.namespace server side
+  # or if called client side or it doesn't exist server side,
+  # Meteor.settings.public.loglevel.namespace.
+  # This allows to set only public loglevel for both client and server side.
   _getNamespaceLoglevel: (namespace)->
     expect(namespace).to.be.a('string').that.has.length.above(0)
     namespace = namespace.replace(':', '.')
@@ -33,7 +39,8 @@ class practical.LoggerFactory
 
     options = {}
     options.prefix = namespace + ':' if namespace.length > 0
-    options.defaultLevel = @_getSettingsLoglevel(namespace, defaultLevel)
+    options.level = @_getSettingsLoglevel(namespace, defaultLevel)
+    console.log "options=", options
     return Loglevel(options)
 
   createPackageLogger: (packageName, defaultLevel = 'info')->
