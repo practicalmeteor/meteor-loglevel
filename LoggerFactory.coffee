@@ -24,7 +24,6 @@ class practical.LoggerFactory
   # This allows to set only public loglevel for both client and server side.
   _getNamespaceLoglevel: (namespace)->
     expect(namespace).to.be.a('string').that.has.length.above(0)
-    namespace = namespace.replace(':', '.')
     level = Meteor.settings?.public?.loglevel?[namespace]
     if Meteor.isServer
       serverLevel = Meteor.settings?.loglevel?[namespace]

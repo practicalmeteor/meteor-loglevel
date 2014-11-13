@@ -24,26 +24,26 @@ describe "loglevel", ->
     it.client 'should return public loglevel client side', ->
       Meteor.settings =
         loglevel:
-          'acct.pkg': 'trace'
+          'acct:pkg': 'trace'
         public:
           loglevel:
-            'acct.pkg': 'debug'
+            'acct:pkg': 'debug'
       expect(loglevel._getNamespaceLoglevel('acct:pkg')).to.equal 'debug'
 
     it.server 'should return server loglevel server side', ->
       Meteor.settings =
         loglevel:
-          'acct.pkg': 'trace'
+          'acct:pkg': 'trace'
         public:
           loglevel:
-            'acct.pkg': 'debug'
+            'acct:pkg': 'debug'
       expect(loglevel._getNamespaceLoglevel('acct:pkg')).to.equal 'trace'
 
     it.server 'should return public loglevel server side, if no server loglevel', ->
       Meteor.settings =
         public:
           loglevel:
-            'acct.pkg': 'debug'
+            'acct:pkg': 'debug'
       expect(loglevel._getNamespaceLoglevel('acct:pkg')).to.equal 'debug'
 
     it 'should return undefined, if no loglevel', ->
@@ -56,11 +56,11 @@ describe "loglevel", ->
       Meteor.settings =
         loglevel:
           'global': 'info'
-          'acct.pkg': 'trace'
+          'acct:pkg': 'trace'
         public:
           loglevel:
             'global': 'warn'
-            'acct.pkg': 'debug'
+            'acct:pkg': 'debug'
       if Meteor.isServer
         expect(loglevel._getSettingsLoglevel('acct:pkg')).to.equal 'info'
       else
@@ -69,10 +69,10 @@ describe "loglevel", ->
     it 'should return namespace loglevel, if set', ->
       Meteor.settings =
         loglevel:
-          'acct.pkg': 'trace'
+          'acct:pkg': 'trace'
         public:
           loglevel:
-            'acct.pkg': 'debug'
+            'acct:pkg': 'debug'
       if Meteor.isServer
         expect(loglevel._getSettingsLoglevel('acct:pkg')).to.equal 'trace'
       else
@@ -149,10 +149,10 @@ describe "loglevel", ->
     it "should read level from Meteor.settings", ->
       Meteor.settings =
         loglevel:
-          'acct.pkg': 'trace'
+          'acct:pkg': 'trace'
         public:
           loglevel:
-            'acct.pkg': 'debug'
+            'acct:pkg': 'debug'
       log = loglevel.createLogger('acct:pkg')
       if Meteor.isServer
         expect(log.level).to.equal log.levels.TRACE
