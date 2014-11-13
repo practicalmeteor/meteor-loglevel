@@ -100,7 +100,7 @@ Meteor.settings.loglevel.global - server side.
 
 Meteor.settings.public.loglevel.global - client side (or if server side global isn't set, server side too).
 
-This will overwrite all log level for all loggers.
+This will overwrite all log levels for all loggers.
 
 ## Specifying a default log level
 
