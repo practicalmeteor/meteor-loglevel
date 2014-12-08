@@ -1,7 +1,7 @@
 Package.describe({
   name: "practicalmeteor:loglevel",
   summary: "Simple logger with app and per-package log levels and line number preserving output.",
-  version: "1.1.0_2",
+  version: "1.1.0_3",
   git: "https://github.com/practicalmeteor/meteor-loglevel.git"
 });
 
@@ -11,7 +11,7 @@ Package.onUse(function (api) {
 
   api.use(['meteor', 'coffeescript']);
 
-  api.use(['spacejamio:chai@1.9.2_2']);
+  api.use(['practicalmeteor:chai@1.9.2_3']);
 
   api.addFiles('loglevel.js');
   api.addFiles('LoggerFactory.coffee');
@@ -21,6 +21,6 @@ Package.onUse(function (api) {
 
 
 Package.onTest(function(api) {
-  api.use(['coffeescript', 'practicalmeteor:loglevel', 'spacejamio:munit@2.1.1']);
+  api.use(['coffeescript', 'practicalmeteor:loglevel', 'practicalmeteor:munit@2.1.2']);
   api.addFiles('tests/LoggerFactoryTest.coffee');
 });
