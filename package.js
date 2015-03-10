@@ -1,7 +1,7 @@
 Package.describe({
   name: "practicalmeteor:loglevel",
   summary: "Simple logger with app and per-package log levels and line number preserving output.",
-  version: "1.1.0_3",
+  version: "1.2.0_1",
   git: "https://github.com/practicalmeteor/meteor-loglevel.git"
 });
 
