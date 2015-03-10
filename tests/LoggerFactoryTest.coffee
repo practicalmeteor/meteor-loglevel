@@ -3,11 +3,12 @@ describe "loglevel", ->
   meteorSettings = Meteor.settings
 
   logAllLevels = (log)->
-    log.trace("I'm log.trace");
-    log.debug("I'm log.debug");
-    log.info("I'm log.info");
-    log.warn("I'm log.warn");
-    log.error("I'm log.error");
+    log.trace("1 I'm log.trace");
+    log.fine("2 I'm log.fine");
+    log.debug("3 I'm log.debug");
+    log.info("4 I'm log.info");
+    log.warn("5 I'm log.warn");
+    log.error("6 I'm log.error");
 
   beforeEach ->
     Meteor.settings = {}
@@ -18,6 +19,12 @@ describe "loglevel", ->
   afterAll ->
     spies.restoreAll()
     Meteor.settings = meteorSettings
+
+  it 'setPrefix - should work', ->
+    log = loglevel.createLogger()
+    log.info ('Without prefix')
+    log.setPrefix('My prefix:')
+    log.info('With prefix')
 
   describe "_getNamespaceLoglevel", ->
 
@@ -140,11 +147,12 @@ describe "loglevel", ->
       log = loglevel.createPackageLogger('loglevel:mypackage')
       expect(log.prefix).to.equal('loglevel:mypackage:')
       log.enableAll()
-      log.trace("I'm log.trace")
-      log.debug("I'm log.debug")
-      log.info("I'm log.info")
-      log.warn("I'm log.warn")
-      log.error("I'm log.error")
+      log.trace("1 I'm log.trace")
+      log.fine("2 I'm log.fine")
+      log.debug("3 I'm log.debug")
+      log.info("4 I'm log.info")
+      log.warn("5 I'm log.warn")
+      log.error("6 I'm log.error")
 
     it "should read level from Meteor.settings", ->
       Meteor.settings =
@@ -164,8 +172,9 @@ describe "loglevel", ->
       log = loglevel.createAppLogger('myapp')
       expect(log.prefix).to.equal('myapp:')
       log.enableAll()
-      log.trace("I'm log.trace")
-      log.debug("I'm log.debug")
-      log.info("I'm log.info")
-      log.warn("I'm log.warn")
-      log.error("I'm log.error")
+      log.trace("1 I'm log.trace")
+      log.fine("2 I'm log.fine")
+      log.debug("3 I'm log.debug")
+      log.info("4 I'm log.info")
+      log.warn("5 I'm log.warn")
+      log.error("6 I'm log.error")
