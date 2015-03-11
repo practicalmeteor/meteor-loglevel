@@ -6,10 +6,10 @@ class ObjectLogger
 
     @callStack = []
 
-    @log.enter = @enter.bind(@, 'debug')
-    @log.fineEnter = @enter.bind(@, 'fine')
-    @log.return = @return.bind(@, 'debug')
-    @log.fineReturn = @return.bind(@, 'fine')
+    @log.enter = @bindMethod(@enter, 'debug')
+    @log.fineEnter = @bindMethod(@enter, 'fine')
+    @log.return = @bindMethod(@return, 'debug')
+    @log.fineReturn = @bindMethod(@return, 'fine')
 
     return @log
 
@@ -27,3 +27,20 @@ class ObjectLogger
     if @callStack.length > 0
       methodName = @callStack[0]
       @log.setPrefix "#{@className}.#{methodName}:"
+
+
+  bindMethod: (method, level) ->
+    if typeof method.bind == 'function'
+      return method.bind(@, level)
+    else
+      try
+        return Function::bind.call(method, @, level)
+      catch e
+      # Missing bind shim or IE8 + Modernizr, fallback to wrapping
+        console.log 'Missing bind shim or IE8 + Modernizr, fallback to wrapping'
+        return (args...)=>
+          args.unshift(level)
+          Function::apply.apply method, [
+            @
+            args
+          ]
