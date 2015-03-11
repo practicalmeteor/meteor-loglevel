@@ -13,6 +13,7 @@ Package.onUse(function (api) {
 
   api.use(['practicalmeteor:chai@1.9.2_3']);
 
+  api.addFiles('bind-polyfill.js');
   api.addFiles('loglevel-1.2.0.js');
   api.addFiles('LoggerFactory.coffee');
   api.addFiles('ObjectLogger.coffee');
