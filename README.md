@@ -15,6 +15,7 @@ log = loglevel.createLogger(namespace = '', defaultLevel = 'info');
 
 // Logging
 log.trace(msg);
+log.fine(obj);
 log.debug(obj);
 log.info(msg1 + msg2);
 log.warn('obj=\n', obj);
@@ -115,6 +116,10 @@ This will be used, if no other log level was found in Meteor.settings.
 1. Hierarchical namespace log levels - so package authors can control log levels for all their packages with one setting and app authors can control log levels for submodules / subsystems.
 
 2. User specific log levels.
+
+## Changelog
+
+[CHANGELOG](https://github.com/practicalmeteor/meteor-loglevel/blob/master/CHANGELOG.md)
 
 ## License
 
