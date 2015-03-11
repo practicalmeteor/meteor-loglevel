@@ -15,12 +15,15 @@ Package.onUse(function (api) {
 
   api.addFiles('loglevel-1.2.0.js');
   api.addFiles('LoggerFactory.coffee');
+  api.addFiles('ObjectLogger.coffee');
 
-  api.export('loglevel');
+  api.export(['loglevel', 'ObjectLogger']);
 });
 
 
 Package.onTest(function(api) {
   api.use(['coffeescript', 'practicalmeteor:loglevel', 'practicalmeteor:munit@2.1.2']);
+
   api.addFiles('tests/LoggerFactoryTest.coffee');
+  api.addFiles('tests/ObjectLoggerTest.coffee');
 });
