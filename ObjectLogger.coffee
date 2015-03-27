@@ -37,7 +37,6 @@ class ObjectLogger
         return Function::bind.call(method, @, level)
       catch e
       # Missing bind shim or IE8 + Modernizr, fallback to wrapping
-        console.log 'Missing bind shim or IE8 + Modernizr, fallback to wrapping'
         return (args...)=>
           args.unshift(level)
           Function::apply.apply method, [
