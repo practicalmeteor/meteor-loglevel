@@ -11,7 +11,7 @@ Package.onUse(function (api) {
 
   api.use(['meteor', 'coffeescript']);
 
-  api.use(['practicalmeteor:chai@1.9.2_3']);
+  api.use(['practicalmeteor:chai']);
 
   api.addFiles('loglevel-1.2.0.js');
   api.addFiles('LoggerFactory.coffee');
