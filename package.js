@@ -11,7 +11,7 @@ Package.onUse(function (api) {
 
   api.use(['meteor', 'coffeescript']);
 
-  api.use(['practicalmeteor:chai']);
+  api.use(['practicalmeteor:chai@2.1.0_1']);
 
   api.addFiles('loglevel-1.2.0.js');
   api.addFiles('LoggerFactory.coffee');
@@ -22,7 +22,7 @@ Package.onUse(function (api) {
 
 
 Package.onTest(function(api) {
-  api.use(['coffeescript', 'practicalmeteor:loglevel', 'practicalmeteor:munit@2.1.2']);
+  api.use(['coffeescript', 'practicalmeteor:loglevel@1.2.0_1', 'practicalmeteor:munit@2.1.2']);
 
   api.addFiles('tests/LoggerFactoryTest.coffee');
   api.addFiles('tests/ObjectLoggerTest.coffee');
