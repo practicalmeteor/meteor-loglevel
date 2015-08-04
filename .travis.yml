@@ -5,9 +5,5 @@ node_js:
 before_install:
   - "curl https://install.meteor.com | /bin/sh"
   - "npm install -g spacejam"
-  - "mkdir packages"
-  - "git clone https://github.com/practicalmeteor/meteor-munit.git packages/munit"
-  - "cd packages/munit && git checkout set-version-dependencies-for-all"
-  - "export PACKAGE_DIRS=$PWD/packages"
 
 script: "spacejam test-packages ./"
