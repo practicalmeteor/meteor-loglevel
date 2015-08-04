@@ -22,7 +22,7 @@ Package.onUse(function (api) {
 
 
 Package.onTest(function(api) {
-  api.use(['coffeescript', 'practicalmeteor:loglevel@1.2.0_2', 'practicalmeteor:munit@2.1.2']);
+  api.use(['coffeescript', 'practicalmeteor:loglevel@1.2.0_2', 'practicalmeteor:munit@2.1.4']);
 
   api.addFiles('tests/LoggerFactoryTest.coffee');
   api.addFiles('tests/ObjectLoggerTest.coffee');
